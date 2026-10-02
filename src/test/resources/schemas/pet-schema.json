@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": ["id", "name", "photoUrls", "status"],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "photoUrls": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["available", "pending", "sold"]
+    }
+  },
+  "additionalProperties": true
+}
